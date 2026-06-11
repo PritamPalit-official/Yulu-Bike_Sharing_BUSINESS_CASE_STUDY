@@ -1,52 +1,241 @@
-# Yulu-Bike_Sharing_BUSINESS_CASE_STUDY
-Data-Driven Analysis of Rental Demand Patterns for Yulu E-Cycles using Exploratory Analytics, Variance &amp; Correlation Studies, and Hypothesis Testing (T-Test, ANOVA, Chi-Square, Tukey HSD) to Enable Smarter Marketing and Operational Decisions
-Project Overview
-This project presents a statistical and hypothesis-driven analysis of Yulu’s bike-sharing demand
-data. The objective is to identify key factors influencing rental demand and to provide data-backed
-recommendations for revenue recovery and operational optimization.
-Business Problem
-Yulu has observed a decline in revenue and seeks to understand how temporal, weather, and
-operational factors affect customer demand. The analysis focuses on identifying statistically
-significant drivers of bike rentals and validating these insights through hypothesis testing.
-Dataset Description
-The dataset contains 10,886 records with 12 features, including rental counts, weather conditions,
-seasonality, working day indicators, and temporal variables. The target variable is total rental count,
-capturing both casual and registered users.
-Analysis Workflow
-• Data Cleaning & Feature Engineering: Datetime conversion and categorical encoding.
-• Exploratory Data Analysis: Univariate and bivariate analysis of demand patterns.
-• Correlation Analysis: Relationship between weather, temperature, and rentals.
-• Hypothesis Testing: Two-sample t-test, ANOVA, and Chi-square tests.
-• Post-hoc Analysis: Tukey HSD for detailed group comparisons.
-• Business Interpretation: Translating statistical results into actionable insights.
-Statistical Methods Used
-• Independent two-sample t-test
-• One-way ANOVA
-• Tukey HSD post-hoc test
-• Chi-square test of independence
-• Correlation analysis
-Key Insights
-The analysis confirms that working days, seasons, and weather conditions have a statistically
-significant impact on bike rental demand. Rentals peak during fall season and clear weather
-conditions, while adverse weather significantly reduces demand. Weather patterns are also strongly
-dependent on seasonality.
-Business Recommendations
-• Increase bike availability during working days and high-demand seasons.
-• Implement dynamic pricing based on demand and weather forecasts.
-• Schedule maintenance during low-demand periods.
-• Align marketing campaigns with seasonal demand trends.
-• Plan infrastructure expansion in regions with favorable weather patterns.
-Tools & Technologies
-• Python
-• Pandas, NumPy
-• Matplotlib, Seaborn
-• SciPy, StatsModels
-• Jupyter Notebook
-How to Use This Repository
-This repository demonstrates applied statistics and hypothesis testing for real-world business
-problems. It is suitable for data analyst interviews, case study discussions, and academic
-evaluation.
-Author
-Pritam Palit
-Electronics and Communication Engineering Graduate
-Focus Areas: Data Analytics, Statistics, Business Intelligence
+<div align="center">
+
+# 🚲 Yulu-Bike Sharing Business Case Study
+
+### Data-Driven Analysis of Rental Demand Patterns for Yulu E-Cycles
+
+*Exploratory Analytics, Variance & Correlation Studies, and Hypothesis Testing (T-Test, ANOVA, Chi-Square, Tukey HSD) to Enable Smarter Marketing & Operational Decisions*
+
+<br>
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+<br>
+
+[📄 View Full Analysis Report (PDF)](Yulu-Bike_Sharing.pdf)
+
+---
+
+</div>
+
+## 📑 Table of Contents
+
+- [🎯 Project Overview](#-project-overview)
+- [❓ Business Problem](#-business-problem)
+- [📊 Dataset Description](#-dataset-description)
+- [🔬 Analysis Workflow](#-analysis-workflow)
+- [📐 Statistical Methods Used](#-statistical-methods-used)
+- [💡 Key Insights](#-key-insights)
+- [📈 Business Recommendations](#-business-recommendations)
+- [🛠️ Tools & Technologies](#️-tools--technologies)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Getting Started](#-getting-started)
+- [👤 Author](#-author)
+- [📄 License](#-license)
+
+---
+
+## 🎯 Project Overview
+
+This project presents a **statistical and hypothesis-driven analysis** of Yulu's bike-sharing demand data. The objective is to identify key factors influencing rental demand and to provide **data-backed recommendations** for revenue recovery and operational optimization.
+
+> Yulu is India's leading micro-mobility service provider, offering unique vehicles for daily commutes. This case study dives deep into their rental data to uncover actionable patterns that drive business growth.
+
+---
+
+## ❓ Business Problem
+
+Yulu has observed a **significant decline in revenue** and seeks to understand how temporal, weather, and operational factors affect customer demand. The analysis focuses on:
+
+- 📉 Identifying **statistically significant drivers** of bike rentals
+- 🔍 Validating insights through **rigorous hypothesis testing**
+- 📊 Understanding the interplay between **weather, seasonality, and demand**
+- 💰 Providing **actionable strategies** for revenue recovery
+
+---
+
+## 📊 Dataset Description
+
+The dataset contains **10,886 records** with **12 features**, capturing comprehensive information about bike rental patterns.
+
+| Feature | Description |
+|:---|:---|
+| `datetime` | Hourly date and timestamp |
+| `season` | Season of the year (1: Spring, 2: Summer, 3: Fall, 4: Winter) |
+| `holiday` | Whether the day is a holiday (0: No, 1: Yes) |
+| `workingday` | Whether the day is a working day (0: No, 1: Yes) |
+| `weather` | Weather condition (1: Clear, 2: Mist, 3: Light Rain/Snow, 4: Heavy Rain/Snow) |
+| `temp` | Temperature in Celsius |
+| `atemp` | "Feels like" temperature in Celsius |
+| `humidity` | Relative humidity |
+| `windspeed` | Wind speed |
+| `casual` | Count of casual (non-registered) users |
+| `registered` | Count of registered users |
+| `count` | **Target Variable** — Total rental count (casual + registered) |
+
+---
+
+## 🔬 Analysis Workflow
+
+The analysis follows a structured, end-to-end approach:
+
+```
+📥 Data Loading
+ │
+ ├── 🧹 Step 1: Data Cleaning & Feature Engineering
+ │         ├── Datetime conversion
+ │         └── Categorical encoding
+ │
+ ├── 📊 Step 2: Exploratory Data Analysis
+ │         ├── Univariate analysis of demand patterns
+ │         └── Bivariate analysis across features
+ │
+ ├── 🔗 Step 3: Correlation Analysis
+ │         └── Weather, temperature & rental relationships
+ │
+ ├── 🧪 Step 4: Hypothesis Testing
+ │         ├── Two-sample t-test
+ │         ├── One-way ANOVA
+ │         └── Chi-square test of independence
+ │
+ ├── 🔎 Step 5: Post-hoc Analysis
+ │         └── Tukey HSD for detailed group comparisons
+ │
+ └── 💼 Step 6: Business Interpretation
+           └── Translating statistical results into actionable insights
+```
+
+---
+
+## 📐 Statistical Methods Used
+
+| Method | Purpose |
+|:---|:---|
+| **Independent Two-Sample T-Test** | Compare rental demand between working days and non-working days |
+| **One-Way ANOVA** | Test demand differences across seasons and weather conditions |
+| **Tukey HSD Post-Hoc Test** | Pairwise comparisons after significant ANOVA results |
+| **Chi-Square Test of Independence** | Examine association between weather and season |
+| **Correlation Analysis** | Quantify relationships between continuous variables |
+
+---
+
+## 💡 Key Insights
+
+The analysis confirms several statistically significant findings:
+
+| Finding | Impact |
+|:---|:---|
+| 🏢 **Working Days** | Significantly higher demand on working days vs. non-working days |
+| 🍂 **Fall Season** | Peak rental demand observed during the fall season |
+| ☀️ **Clear Weather** | Clear/partly cloudy weather drives the highest rentals |
+| 🌧️ **Adverse Weather** | Heavy rain/snow significantly reduces demand |
+| 🔗 **Weather–Season Dependency** | Weather patterns are strongly dependent on seasonality |
+
+> **Key Takeaway:** Demand is not random — it is systematically driven by working day patterns, seasonal cycles, and weather conditions, all of which can be leveraged for strategic planning.
+
+---
+
+## 📈 Business Recommendations
+
+| # | Recommendation | Expected Outcome |
+|:---:|:---|:---|
+| 1 | 🚲 **Increase bike availability** during working days & high-demand seasons | Capture unmet demand and reduce lost revenue |
+| 2 | 💲 **Implement dynamic pricing** based on demand & weather forecasts | Maximize revenue during peak periods |
+| 3 | 🔧 **Schedule maintenance** during low-demand periods | Minimize service disruption |
+| 4 | 📣 **Align marketing campaigns** with seasonal demand trends | Improve ROI on marketing spend |
+| 5 | 🏗️ **Plan infrastructure expansion** in regions with favorable weather | Strategic long-term growth |
+
+---
+
+## 🛠️ Tools & Technologies
+
+<div align="center">
+
+| Category | Tools |
+|:---|:---|
+| **Programming Language** | Python |
+| **Data Manipulation** | Pandas, NumPy |
+| **Data Visualization** | Matplotlib, Seaborn |
+| **Statistical Analysis** | SciPy, StatsModels |
+| **Development Environment** | Jupyter Notebook |
+
+</div>
+
+---
+
+## 📁 Project Structure
+
+```
+Yulu-Bike_Sharing_BUSINESS_CASE_STUDY/
+│
+├── 📄 README.md                    # Project documentation (this file)
+├── 📊 Yulu-Bike_Sharing.pdf        # Complete analysis report with visualizations
+└── 📜 LICENSE                      # MIT License
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have Python 3.x installed along with the required libraries:
+
+```bash
+pip install pandas numpy matplotlib seaborn scipy statsmodels jupyter
+```
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/PritamPalit-official/Yulu-Bike_Sharing_BUSINESS_CASE_STUDY.git
+cd Yulu-Bike_Sharing_BUSINESS_CASE_STUDY
+```
+
+### View the Analysis
+
+Open the **PDF report** for the complete analysis with all visualizations, statistical outputs, and business recommendations:
+
+```bash
+# Open the analysis report
+start Yulu-Bike_Sharing.pdf        # Windows
+open Yulu-Bike_Sharing.pdf         # macOS
+xdg-open Yulu-Bike_Sharing.pdf     # Linux
+```
+
+---
+
+## 👤 Author
+
+<div align="center">
+
+**Pritam Palit**
+
+🎓 Electronics and Communication Engineering Graduate
+
+📊 Focus Areas: Data Analytics | Statistics | Business Intelligence
+
+[![GitHub](https://img.shields.io/badge/GitHub-PritamPalit--official-181717?style=for-the-badge&logo=github)](https://github.com/PritamPalit-official)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Pritam_Palit-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/pritam-palit-77b2071b4/)
+
+</div>
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+⭐ **If you found this project insightful, please consider giving it a star!** ⭐
+
+</div>
