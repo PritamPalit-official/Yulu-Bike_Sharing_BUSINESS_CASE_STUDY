@@ -12,8 +12,10 @@
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge)
 ![SciPy](https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 <br>
@@ -174,7 +176,13 @@ The analysis confirms several statistically significant findings:
 ```
 Yulu-Bike_Sharing_BUSINESS_CASE_STUDY/
 │
-├── 📄 README.md                    # Project documentation (this file)
+├── 📁 data/
+│   └── 📊 yulu_data.csv            # Bike sharing rental dataset
+├── 📁 images/                      # Exported EDA and hypothesis visualization plots
+├── 📄 app.py                       # Interactive Streamlit dashboard & live hypothesis test sandbox
+├── 📄 requirements.txt             # Dependency definitions
+├── 📓 Yulu_Hypothesis_Testing.ipynb # Hypothesis testing Jupyter notebook
+├── 🐍 Yulu_Hypothesis_Testing.py    # Python counterpart of the analysis notebook
 ├── 📊 Yulu-Bike_Sharing.pdf        # Complete analysis report with visualizations
 └── 📜 LICENSE                      # MIT License
 ```
@@ -183,31 +191,42 @@ Yulu-Bike_Sharing_BUSINESS_CASE_STUDY/
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### 🖥️ Running the Interactive Dashboard (Streamlit)
 
-Make sure you have Python 3.x installed along with the required libraries:
+To view the live interactive web dashboard:
 
-```bash
-pip install pandas numpy matplotlib seaborn scipy statsmodels jupyter
-```
+1. **Clone the repository and navigate inside**:
+   ```bash
+   git clone https://github.com/PritamPalit-official/Yulu-Bike_Sharing_BUSINESS_CASE_STUDY.git
+   cd Yulu-Bike_Sharing_BUSINESS_CASE_STUDY
+   ```
 
-### Clone the Repository
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-```bash
-git clone https://github.com/PritamPalit-official/Yulu-Bike_Sharing_BUSINESS_CASE_STUDY.git
-cd Yulu-Bike_Sharing_BUSINESS_CASE_STUDY
-```
+3. **Run the Streamlit application**:
+   ```bash
+   streamlit run app.py
+   ```
 
-### View the Analysis
+This will automatically launch the dashboard in your default browser at `http://localhost:8501`.
 
-Open the **PDF report** for the complete analysis with all visualizations, statistical outputs, and business recommendations:
+### 📓 Running the Notebook Analysis
 
-```bash
-# Open the analysis report
-start Yulu-Bike_Sharing.pdf        # Windows
-open Yulu-Bike_Sharing.pdf         # macOS
-xdg-open Yulu-Bike_Sharing.pdf     # Linux
-```
+If you'd like to explore the step-by-step Jupyter Notebook analysis:
+
+1. **Install Jupyter and base requirements**:
+   ```bash
+   pip install pandas numpy matplotlib seaborn scipy statsmodels jupyter
+   ```
+
+2. **Launch Jupyter**:
+   ```bash
+   jupyter notebook
+   ```
+   Open `Yulu_Hypothesis_Testing.ipynb` to see the complete exploration workflow.
 
 ---
 
