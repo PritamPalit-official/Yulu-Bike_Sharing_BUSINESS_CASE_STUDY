@@ -230,6 +230,30 @@ If you'd like to explore the step-by-step Jupyter Notebook analysis:
 
 ---
 
+## 🛠️ Development & Testing
+
+To maintain production-ready code quality, this repository includes dev dependencies, unit testing configurations, and automated CI pipelines:
+
+### 📦 Setup Developer Dependencies
+Install the required development and testing packages:
+```bash
+pip install -r requirements-dev.txt
+```
+
+### 🧪 Run Unit Tests Locally
+Run the test suite using Python's built-in `unittest` runner:
+```bash
+python -m unittest discover -s tests -p "test_*.py"
+```
+
+### ⚙️ Continuous Integration (CI)
+A GitHub Actions workflow is configured in `.github/workflows/ci.yml`. On every `push` and `pull_request` to the repository, it automatically:
+1. Provisions an Ubuntu runner with Python 3.10.
+2. Installs dependencies from both `requirements.txt` and `requirements-dev.txt`.
+3. Runs the test suite to verify code integrity and prevent regressions.
+
+---
+
 ## 👤 Author
 
 <div align="center">
